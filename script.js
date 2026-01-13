@@ -3,12 +3,8 @@ async function getDieselPrice() {
   try {
     const response = await fetch("https://storage.data.gov.my/fuelprice/fuelprice.json");
     const data = await response.json();
-
-    // Ambil rekod terbaru
-    const latest = data[0]; 
-    // Kolum Diesel (Semenanjung) biasanya bernama "Diesel (Semenanjung)"
+    const latest = data[0];
     const dieselPrice = latest["Diesel (Semenanjung)"];
-
     if (dieselPrice) {
       document.getElementById('hargaSemasa').value = dieselPrice;
     }
