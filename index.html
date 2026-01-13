@@ -2,42 +2,33 @@
 <html lang="ms">
 <head>
   <meta charset="UTF-8">
-  <title>Kalkulator Subsidi Diesel</title>
-  <!-- Meta viewport untuk responsif -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cash Card Diesel BHP</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h2>Kalkulator Subsidi Diesel</h2>
+    <h2>Cash Card Diesel BHP</h2>
     
-    <label for="hargaSemasa">Harga Diesel Semasa (RM/L)</label>
-    <input type="number" id="hargaSemasa" step="0.001">
-
-    <label for="hargaSubsidi">Harga Diesel Subsidi (RM/L)</label>
-    <input type="number" id="hargaSubsidi" value="2.15" readonly>
+    <label for="sales">Sales (RM):</label>
+    <input type="number" id="sales" placeholder="Masukkan jumlah jualan (RM)">
     
-    <label for="sales">Sales (RM)</label>
-    <input type="number" id="sales" placeholder="Masukkan jumlah RM">
+    <label for="hargaPasaran">Harga Pasaran Diesel (RM/liter):</label>
+    <input type="number" id="hargaPasaran" step="0.01">
     
-    <div class="buttons">
-      <button id="btnKira">KIRA</button>
-      <button id="btnReset">RESET</button>
+    <label for="hargaSubsidi">Harga Subsidi Diesel (RM/liter):</label>
+    <input type="number" id="hargaSubsidi" step="0.01">
+    
+    <!-- Button Reset -->
+    <div class="reset-container">
+      <button id="resetBtn">🔄 Reset</button>
     </div>
     
-    <div class="result">
-      <p>Gran Total: RM <span id="granTotal">0.00</span></p>
-      <p>Rounding: RM <span id="rounding">0.00</span></p>
-      <p>Subsidi: RM <span id="subsidi">0.00</span></p>
-      <p>Amount Paid: RM <span id="amountPaid">0.00</span></p>
-      <p>Peratus: <span id="percent">0.00</span>%</p>
+    <div id="result">
+      <p>Jumlah Liter: -</p>
+      <p>Subsidi: -</p>
+      <p>Jumlah Bayaran: -</p>
     </div>
   </div>
-
-  <!-- Footer credit -->
-  <footer>
-    <p>Create by Abang Mie BHP</p>
-  </footer>
 
   <script src="script.js"></script>
 </body>
