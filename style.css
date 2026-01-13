@@ -13,7 +13,7 @@ body {
 
 /* Container */
 .container {
-  width: 95%;              /* guna hampir penuh skrin fon */
+  width: 80%;              /* guna hampir penuh skrin fon */
   max-width: 400px;        /* limit bila buka desktop */
   padding: 20px;
   background: #1e1e1e;
@@ -81,3 +81,4 @@ footer {
     font-size: 0.95em;
   }
 }
+
