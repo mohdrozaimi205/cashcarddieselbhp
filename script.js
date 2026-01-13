@@ -1,8 +1,27 @@
+// Auto-update harga Diesel Semenanjung dari data.gov.my
+async function getDieselPrice() {
+  try {
+    const response = await fetch("https://storage.data.gov.my/fuelprice/fuelprice.json");
+    const data = await response.json();
+
+    // Ambil rekod terbaru
+    const latest = data[0]; 
+    // Kolum Diesel (Semenanjung) biasanya bernama "Diesel (Semenanjung)"
+    const dieselPrice = latest["Diesel (Semenanjung)"];
+
+    if (dieselPrice) {
+      document.getElementById('hargaSemasa').value = dieselPrice;
+    }
+  } catch (error) {
+    console.log("Gagal auto-update, sila keyin manual.");
+    document.getElementById('hargaSemasa').value = 2.890; // fallback default
+  }
+}
+
 // Rounding ikut aturan baru
 function roundCustom(value) {
   let ringgit = Math.floor(value);
   let sen = Math.round((value - ringgit) * 100);
-
   let roundedSen;
 
   if (sen <= 2) {
@@ -14,14 +33,12 @@ function roundCustom(value) {
   } else if (sen >= 8 && sen <= 9) {
     roundedSen = 10;
   } else {
-    // selebihnya ikut pembundaran ke 0.05 terdekat
     roundedSen = Math.round(sen / 5) * 5;
     if (roundedSen === 100) {
       ringgit += 1;
       roundedSen = 0;
     }
   }
-
   return ringgit + (roundedSen / 100);
 }
 
@@ -40,28 +57,13 @@ function kira() {
     return;
   }
 
-  // Gran Total
   const granTotal = sales;
-
-  // Liter = Sales ÷ Harga Semasa
   const liter = sales / hargaSemasa;
-
-  // Subsidi per liter
   const subsidiPerLiter = hargaSemasa - hargaSubsidi;
-
-  // Jumlah subsidi
   const subsidi = subsidiPerLiter * liter;
-
-  // Amount Paid asal
   const amountPaidRaw = sales - subsidi;
-
-  // Amount Paid rounded ikut aturan custom
   const amountPaidRounded = roundCustom(amountPaidRaw);
-
-  // Rounding adjustment
   const rounding = (amountPaidRounded - amountPaidRaw).toFixed(2);
-
-  // Peratus subsidi
   const percentRaw = (subsidi / sales) * 100;
   const percent = roundDown(percentRaw, 2);
 
@@ -73,8 +75,6 @@ function kira() {
 }
 
 function resetForm() {
-  document.getElementById('hargaSemasa').value = 2.890;
-  document.getElementById('hargaSubsidi').value = 2.15;
   document.getElementById('sales').value = "";
   document.getElementById('granTotal').textContent = "0.00";
   document.getElementById('rounding').textContent = "0.00";
@@ -83,14 +83,15 @@ function resetForm() {
   document.getElementById('percent').textContent = "0.00";
 }
 
-// event listener
+// Event listener
 document.getElementById('btnKira').addEventListener("click", kira);
 document.getElementById('btnReset').addEventListener("click", resetForm);
-
-// tekan ENTER terus kira
 document.getElementById('sales').addEventListener("keypress", function(event) {
   if (event.key === "Enter") {
     event.preventDefault();
     kira();
   }
 });
+
+// Auto-load harga Diesel Semenanjung
+window.onload = getDieselPrice;
