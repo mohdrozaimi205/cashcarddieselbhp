@@ -23,7 +23,7 @@ body {
 
 /* Input field */
 input {
-  width: 100%;
+  width: 85%;
   padding: 12px;
   margin: 10px 0;
   border: 1px solid #555;
@@ -81,4 +81,5 @@ footer {
     font-size: 0.95em;
   }
 }
+
 
