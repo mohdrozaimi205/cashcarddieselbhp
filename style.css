@@ -1,20 +1,20 @@
 /* Body penuh gelap */
 body {
   font-family: Arial, sans-serif;
-  background-color: #121212; /* auto dark mode penuh */
+  background-color: #121212;
   color: #fff;
   margin: 0;
   padding: 0;
-  min-height: 100vh; /* penuh tinggi skrin */
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Container di tengah */
+/* Container */
 .container {
-  width: 90%;
-  max-width: 400px;
+  width: 95%;              /* guna hampir penuh skrin fon */
+  max-width: 400px;        /* limit bila buka desktop */
   padding: 20px;
   background: #1e1e1e;
   border-radius: 8px;
@@ -24,22 +24,24 @@ body {
 /* Input field */
 input {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   margin: 10px 0;
   border: 1px solid #555;
   border-radius: 4px;
   background-color: #2a2a2a;
   color: #fff;
+  font-size: 1em;
 }
 
 /* Button */
 button {
-  padding: 10px 15px;
+  padding: 12px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   background: #007bff;
   color: #fff;
+  font-size: 1em;
 }
 
 /* Reset button container */
@@ -52,6 +54,7 @@ button {
 #result {
   margin-top: 15px;
   font-weight: bold;
+  font-size: 1em;
 }
 
 /* Footer */
@@ -60,4 +63,21 @@ footer {
   margin-top: 20px;
   font-size: 0.9em;
   color: #aaa;
+}
+
+/* Responsive tweak untuk fon kecil */
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+  }
+  h2 {
+    font-size: 1.2em;
+    text-align: center;
+  }
+  input, button {
+    font-size: 0.95em;
+  }
+  #result {
+    font-size: 0.95em;
+  }
 }
