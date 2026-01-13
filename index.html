@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <title>Cash Card Diesel BHP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Cash Card Diesel BHP</h2>
+    
+    <label for="sales">Sales (RM):</label>
+    <input type="number" id="sales" placeholder="Masukkan jumlah jualan (RM)">
+    
+    <label for="hargaPasaran">Harga Pasaran Diesel (RM/liter):</label>
+    <input type="number" id="hargaPasaran" step="0.01">
+    
+    <label for="hargaSubsidi">Harga Subsidi Diesel (RM/liter):</label>
+    <input type="number" id="hargaSubsidi" step="0.01">
+    
+    <!-- Button Reset -->
+    <div class="reset-container">
+      <button id="resetBtn">🔄 Reset</button>
+    </div>
+    
+    <div id="result">
+      <p>Jumlah Liter: -</p>
+      <p>Subsidi: -</p>
+      <p>Jumlah Bayaran: -</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
