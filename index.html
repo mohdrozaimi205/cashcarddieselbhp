@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <title>Kalkulator Subsidi Diesel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Kalkulator Subsidi Diesel</h2>
+    
+    <label for="hargaSemasa">Harga Diesel Semasa (RM/L)</label>
+    <input type="number" id="hargaSemasa" value="2.890" step="0.001">
+    
+    <label for="hargaSubsidi">Harga Diesel Subsidi (RM/L)</label>
+    <input type="number" id="hargaSubsidi" value="2.15" readonly>
+    
+    <label for="sales">Sales (RM)</label>
+    <input type="number" id="sales" placeholder="Masukkan jumlah RM">
+    
+    <div class="buttons">
+      <button id="btnKira">KIRA</button>
+      <button id="btnReset">RESET</button>
+    </div>
+    
+    <div class="result">
+      <p>Gran Total: RM <span id="granTotal">0.00</span></p>
+      <p>Rounding: RM <span id="rounding">0.00</span></p>
+      <p>Subsidi: RM <span id="subsidi">0.00</span></p>
+      <p>Amount Paid: RM <span id="amountPaid">0.00</span></p>
+      <p>Peratus: <span id="percent">0.00</span>%</p>
+    </div>
+  </div>
+
+  <!-- Footer credit -->
+  <footer>
+    <p>Create by Abang Mie BHP</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
