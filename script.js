@@ -25,7 +25,7 @@ async function fetchHargaDiesel() {
     if (idxDiesel !== -1) {
       hargaPasaranInput.value = parseFloat(firstRow[idxDiesel]);
     } else {
-      hargaPasaranInput.value = 4.72; // fallback
+      hargaPasaranInput.value = 5.52; // fallback
     }
 
     if (idxSubsidi !== -1) {
@@ -37,7 +37,7 @@ async function fetchHargaDiesel() {
     calculate();
   } catch (err) {
     console.error("Gagal fetch data:", err);
-    hargaPasaranInput.value = 4.72;
+    hargaPasaranInput.value = 5.52;
     hargaSubsidiInput.value = 2.15;
     calculate();
   }
